@@ -4,7 +4,7 @@ import requests
 
 URL = "https://10au8vx47a.execute-api.us-east-2.amazonaws.com/prod/quote"
 
-with open('quotes3.csv') as csv_file:
+with open('quotes4.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -20,6 +20,7 @@ with open('quotes3.csv') as csv_file:
                 "quote": row[2],
                 "author": row[3]
             }
+
             r = requests.post(url=URL, json=PARAMS)
             print(line_count, r)
 
